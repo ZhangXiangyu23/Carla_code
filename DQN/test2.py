@@ -46,6 +46,7 @@ class Car_Env():
         self.collision_hist = []
         self.radar_hist = []
         self.actor_list = []
+        # 汽车起点
         self.transform = self.world.get_map().get_spawn_points()[100]  # spwan_points共265个点，选第一个点作为初始化小车的位置
         self.vehicle = self.world.spawn_actor(self.model_3, self.transform)
 
@@ -72,7 +73,7 @@ class Car_Env():
         self.colsensor.listen(lambda event: self.collision_data(event))
 
         # target_transform 定义驾驶目的地坐标
-        self.target_transform = self.world.get_map().get_spawn_points()[101]
+        self.target_transform = self.world.get_map().get_spawn_points()[106]
         self.target_dis = self.target_transform.location.distance(self.vehicle.get_location())
 
         while self.front_camera is None:
@@ -149,7 +150,7 @@ from torch import FloatTensor, LongTensor, ByteTensor
 
 Tensor = FloatTensor
 
-EPSILON = 0.9  # epsilon used for epsilon greedy approach
+EPSILON = 0.1  # epsilon used for epsilon greedy approach
 GAMMA = 0.9
 TARGET_NETWORK_REPLACE_FREQ = 100  # How frequently target netowrk updates
 MEMORY_CAPACITY = 200

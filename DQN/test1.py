@@ -101,4 +101,4 @@ class Car_Env():
 if __name__ == '__main__':
     env=Car_Env()
     s=env.reset()
-    time.sleep(10)
+    time.sleep(100)
