@@ -36,15 +36,15 @@ try:
     client = carla.Client('127.0.0.1', 2000)
     client.set_timeout(2.0)
 
-    world = client.get_world()
-
+    # world = client.get_world()
+    world = client.load_world('Town01')
     blueprint_library = world.get_blueprint_library()
 
     bp = blueprint_library.filter('model3')[0]
     print(bp)
 
     spawn_point = random.choice(world.get_map().get_spawn_points())
-    spawn_point = world.get_map().get_spawn_points()[106]
+    spawn_point = world.get_map().get_spawn_points()[150]
 
     vehicle = world.spawn_actor(bp, spawn_point)
     # vehicle.apply_control(carla.VehicleControl(throttle=1.0, steer=0.0))
@@ -71,7 +71,7 @@ try:
 
     # do something with this sensor
     sensor.listen(lambda data: process_img(data))
-    time.sleep(50)
+    time.sleep(500)
 
 finally:
     print('destroying actors')

@@ -73,7 +73,7 @@ class Car_Env():
         self.colsensor.listen(lambda event: self.collision_data(event))
 
         # target_transform 定义驾驶目的地坐标
-        self.target_transform = self.world.get_map().get_spawn_points()[106]
+        self.target_transform = self.world.get_map().get_spawn_points()[101]
         self.target_dis = self.target_transform.location.distance(self.vehicle.get_location())
 
         while self.front_camera is None:
@@ -274,7 +274,7 @@ if __name__ == '__main__':
     s=env.reset()
     dqn=DQN()
     count=0
-    for i in range(2000):
+    for i in range(1000):
         a=dqn.choose_action(s)
         s_,r,done,info = env.step(a)
         dqn.push_memory(s, a, r, s_)
