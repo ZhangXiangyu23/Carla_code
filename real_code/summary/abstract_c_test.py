@@ -38,6 +38,7 @@ class Son(Parent):
 # 实例化
 s = Son(sex="male", surname="Zhang", job="student")
 s.is_adult()
+print("-" * 50)
 s.hobby()
 
 
